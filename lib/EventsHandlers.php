@@ -76,7 +76,7 @@ class EventsHandlers {
                 'company' => $transfer['UF_COMPANY'],
                 'flight' => $transfer['UF_NUMBER'],
                 'date' => $date,
-                'subclass' => "E"
+                'subclass' => "P"
             ];
 
             $date = date('d.m.Y', strtotime($bookFields['UF_DATE_TO_TRANS'] ? $bookFields['UF_DATE_TO_TRANS']->toString() : $bookFields['UF_DATE_TO']->toString()));
@@ -87,7 +87,7 @@ class EventsHandlers {
                 'company' => $transferback['UF_COMPANY'],
                 'flight' => $transferback['UF_NUMBER'],
                 'date' => $date,
-                'subclass' => "E"
+                'subclass' => "P"
             ];
 
             $result = $request->send('booking', $data);
@@ -217,7 +217,7 @@ class EventsHandlers {
             // get aviability
             $response = $request->send('availability', [
                 'flight' => $transport['UF_NUMBER'],
-                'subclass' => "E",
+                'subclass' => "P",
                 'departure' => $departure,
                 'arrival' => $arrival,
                 'date' => $parameters['date_from_transfer'],
@@ -278,7 +278,7 @@ class EventsHandlers {
                         'passengers' => $passengers,
                         'curr' => $parameters['currency'],
                         'num' => $transport['UF_NUMBER'],
-                        'subclass' => "E", 'class' => 'Э',
+                        'subclass' => "P", 'class' => 'Э',
                         'departure' => $departure,
                         'arrival' => $arrival,
                         'date' => $parameters['date_from_transfer'],
@@ -321,7 +321,7 @@ class EventsHandlers {
             // get aviability
             $responseBack = $request->send('availability', [
                 'flight' => $transportback['UF_NUMBER'],
-                'subclass' => "E",
+                'subclass' => "P",
                 'departure' => $departureBack,
                 'arrival' => $arrivalBack,
                 'date' => $parameters['date_from_transfer'],
@@ -382,7 +382,7 @@ class EventsHandlers {
                         'passengers' => $passengersBack,
                         'curr' => $parameters['currency'],
                         'num' => $transportback['UF_NUMBER'],
-                        'subclass' => "E", 'class' => 'Э',
+                        'subclass' => "P", 'class' => 'Э',
                         'departure' => $departureBack,
                         'arrival' => $arrivalBack,
                         'date' => $parameters['date_from_transfer'],
